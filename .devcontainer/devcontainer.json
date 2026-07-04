@@ -1,0 +1,11 @@
+{
+  "name": "Python Dev Container",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/app",
+  "extensions": [
+    "ms-python.python",
+    "ms-azuretools.vscode-docker",
+    "eamodio.gitlens"
+  ]
+}

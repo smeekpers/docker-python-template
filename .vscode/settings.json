@@ -1,0 +1,12 @@
+{
+  "python.defaultInterpreterPath": "/usr/local/bin/python",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true
+  }
+}
