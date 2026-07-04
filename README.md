@@ -8,4 +8,4 @@ A simple Docker-based Python project for local development in VS Code.
 app/          Python application code
 notebooks/    Jupyter notebooks
 tests/        Pytest tests
-.vscode/      VS Code workspace settings
+.vscode/      VS Code workspace settings# docker-python-template
