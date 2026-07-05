@@ -6,3 +6,4 @@ python-dotenv
 requests
 scikit-learn
 matplotlib
+pre-commit
