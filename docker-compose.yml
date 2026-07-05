@@ -1,30 +1,23 @@
 services:
-
   app:
     build:
       context: .
       dockerfile: Dockerfile
-
+      target: development
     container_name: Docker-Python-Template-app
-
     working_dir: /app
-
     volumes:
       - .:/app
       - ~/.gitconfig:/root/.gitconfig:ro
       - ~/.ssh:/root/.ssh:ro
-
     environment:
       APP_NAME: Docker-Python-Template
       APP_ENV: Development
       PORT: 8000
       DEBUG: "true"
       ENVIRONMENT: local
-
     command: sleep infinity
-
     tty: true
-
     ports:
       - "8000:8000"
 
@@ -32,30 +25,20 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
+      target: production
     container_name: Docker-Python-Template-api
-
-    command:
-      - uvicorn
-      - app.main:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8000"
-
     ports:
       - "8001:8000"
-
-    volumes:
-      - .:/app
+    environment:
+      DEBUG: "false"
 
   notebook:
-    image: jupyter/base-notebook
-
+    image: jupyter/base-notebook:latest
     container_name: jupyter-notebook
-
     ports:
       - "8888:8888"
-
     volumes:
-      - .:/home/jovyan/work
+      - ./notebooks:/home/jovyan/work
+      - ./data:/home/jovyan/data
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"

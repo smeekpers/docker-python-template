@@ -15,6 +15,6 @@
             ]
           }
         },
-          
+
   "postCreateCommand": "git --version && pre-commit install"
       }
