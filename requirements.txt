@@ -9,3 +9,7 @@ requests
 fastapi
 uvicorn
 python.dotenv
+pytest-cov
+pre-commit
+black
+flake8

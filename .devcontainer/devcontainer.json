@@ -1,11 +1,20 @@
 {
-  "name": "Python Dev Container",
+  "name": "Docker Python Template",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/app",
-  "extensions": [
-    "ms-python.python",
-    "ms-azuretools.vscode-docker",
-    "eamodio.gitlens"
-  ]
-}
+  "customizations": {
+        "vscode": {
+          "extensions": [
+            "ms-python.python",
+            "ms-azuretools.vscode-docker",
+            "eamodio.gitlens",
+            "ms-python.vscode-pylance",
+            "ms-azuretools.vscode-docker",
+            "GitHub.vscode-pull-request-github"
+            ]
+          }
+        },
+          
+  "postCreateCommand": "git --version && pre-commit install"
+      }

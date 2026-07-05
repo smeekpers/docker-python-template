@@ -5,6 +5,8 @@ services:
     container_name: ${APP_NAME}-app
     volumes:
       - .:/app
+      - ~/.gitconfig:/root/.gitconfig:ro
+      - ~/.ssh:/root/.ssh:ro
     ports:
       - "${PORT}:${PORT}"
     env_file:
