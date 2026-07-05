@@ -1,22 +1,22 @@
 
 services:
   app:
-    build: 
+  build:
     context: .
-    container_name: ${APP_NAME}-app
-    volumes:
-      - .:/app
-      - ~/.gitconfig:/root/.gitconfig:ro
-      - ~/.ssh:/root/.ssh:ro
-    ports:
-      - "${PORT}:${PORT}"
-    env_file:
-      - .env
-    environment:
-      - APP_ENV=${APP_ENV}
-      - DEBUG=${DEBUG}
-    command: python src/app/main.py
-    command: sleep infinity
+    dockerfile: Dockerfile
+
+  container_name: Docker-Python-Template-app
+
+  working_dir: /app
+
+  volumes:
+    - .:/app
+    - ~/.gitconfig:/root/.gitconfig:ro
+    - ~/.ssh:/root/.ssh:ro
+
+  command: sleep infinity
+
+  tty: true
 
   api:
     build: .
