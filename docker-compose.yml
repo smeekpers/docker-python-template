@@ -1,7 +1,8 @@
 
 services:
   app:
-    build: .
+    build: 
+    context: .
     container_name: ${APP_NAME}-app
     volumes:
       - .:/app
@@ -14,7 +15,8 @@ services:
     environment:
       - APP_ENV=${APP_ENV}
       - DEBUG=${DEBUG}
-    command: python src/app/main.py,sleep infinity
+    command: python src/app/main.py
+    command: sleep infinity
 
   api:
     build: .
