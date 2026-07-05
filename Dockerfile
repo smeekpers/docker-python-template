@@ -17,7 +17,7 @@ RUN apt-get update && \
 rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-COPY reauirements-dev.txt .
+COPY requirements-dev.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt \
 pip install --no-cache-dir -r requirements-dev.txt
