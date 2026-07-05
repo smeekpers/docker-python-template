@@ -28,10 +28,6 @@ services:
   ports:
     - "8000:8000"
 
-  command: sleep infinity
-
-  tty: true
-
   api:
     build: .
     container_name: ${APP_NAME}-api
