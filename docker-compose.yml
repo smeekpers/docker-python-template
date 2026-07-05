@@ -14,24 +14,6 @@ services:
     - ~/.gitconfig:/root/.gitconfig:ro
     - ~/.ssh:/root/.ssh:ro
 
-  command: sleep infinity
-
-  tty: true
-
-  app:
-  build:
-    context: .
-    dockerfile: Dockerfile
-
-  container_name: Docker-Python-Template-app
-
-  working_dir: /app
-
-  volumes:
-    - .:/app
-    - ~/.gitconfig:/root/.gitconfig:ro
-    - ~/.ssh:/root/.ssh:ro
-
   environment:
     APP_NAME: Docker-Python-Template
     APP_ENV: Development
@@ -45,6 +27,21 @@ services:
 
   ports:
     - "8000:8000"
+
+  command: sleep infinity
+
+  tty: true
+
+  api:
+    build: .
+    container_name: ${APP_NAME}-api
+    volumes:
+      - .:/app
+    ports:
+      - "8001:8000"
+    env_file:
+      - .env
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
 
   notebook:
     image: jupyter/base-notebook
